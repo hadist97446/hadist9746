@@ -20,7 +20,7 @@
             --blue-neon: #0088ff;
             --magenta-neon: #ff0055;
             --bg-dark: #02050e;
-            --bg-card: rgba(10, 25, 47, 0.5);
+            --bg-card: rgba(10, 25, 47, 0.65);
             --border-neon: rgba(0, 243, 255, 0.3);
             --glow-neon: 0 0 15px rgba(0, 243, 255, 0.4);
             --font-main: 'Rajdhani', sans-serif;
@@ -95,7 +95,7 @@
             position: fixed;
             top: 0;
             z-index: 1000;
-            background: linear-gradient(180deg, rgba(2, 5, 14, 0.9) 0%, rgba(2, 5, 14, 0) 100%);
+            background: linear-gradient(180deg, rgba(2, 5, 14, 0.95) 0%, rgba(2, 5, 14, 0) 100%);
             backdrop-filter: blur(5px);
         }
         .logo-group {
@@ -129,6 +129,7 @@
             border-radius: 50%; padding: 3px;
             background: conic-gradient(from 180deg at 50% 50%, var(--cyan-neon), var(--magenta-neon), var(--cyan-neon));
             box-shadow: 0 0 15px rgba(0,243,255,0.7);
+            overflow: hidden;
         }
         .profile-side img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover;}
         
@@ -144,9 +145,9 @@
         .profile-data-list li { margin-bottom: 10px; display: flex; gap: 10px; align-items: center;}
         .profile-data-list i { color: var(--cyan-neon); width: 15px; text-align: center;}
         
-        .social-links { display: flex; justify-content: center; gap: 15px; font-size: 1.1rem;}
+        .social-links { display: flex; justify-content: center; gap: 20px; font-size: 1.5rem;}
         .social-links a { color: #888; transition: 0.3s; }
-        .social-links a:hover { color: var(--cyan-neon); text-shadow: var(--glow-neon);}
+        .social-links a:hover { color: var(--cyan-neon); text-shadow: var(--glow-neon); transform: scale(1.1);}
         
         .profile-side .motto { margin-top: 25px; color: var(--cyan-neon); font-size: 0.75rem; letter-spacing: 1px; line-height: 1.2;}
 
@@ -160,38 +161,38 @@
         
         .swiper-text-content {
             position: absolute; bottom: 30px; left: 30px; right: 30px;
-            color: #fff; font-family: var(--font-cyber); text-shadow: 1px 1px 10px rgba(0,0,0,0.7);
+            color: #fff; font-family: var(--font-cyber); text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+            background: rgba(2, 5, 14, 0.6); padding: 15px; border-radius: 6px; border-left: 2px solid var(--cyan-neon);
         }
-        .swiper-text-content p.meta { color: #ccc; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;}
-        .swiper-text-content h1 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+        .swiper-text-content p.meta { color: var(--cyan-neon); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;}
+        .swiper-text-content h1 { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
         .swiper-text-content h1 span.highlight { color: var(--cyan-neon); text-shadow: var(--glow-neon); }
-        .swiper-text-content p.desc { color: #ddd; font-family: var(--font-main); font-size: 1rem;}
+        .swiper-text-content p.desc { color: #ddd; font-family: var(--font-main); font-size: 0.95rem;}
         
-        .swiper-button-prev, .swiper-button-next { color: rgba(255,255,255,0.4); }
-        .swiper-button-prev:after, .swiper-button-next:after { font-size: 18px; font-weight: 700;}
+        .swiper-button-prev, .swiper-button-next { color: var(--cyan-neon); }
+        .swiper-button-prev:after, .swiper-button-next:after { font-size: 20px; font-weight: 700;}
 
-        .about-me-card { display: grid; grid-template-columns: 1fr 180px; gap: 20px; align-items: center; }
+        .about-me-card { display: block; }
         .about-text { color: #ccc; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;}
         
         .projects-header { display: flex; justify-content: space-between; align-items: center; }
         .btn-link-sm { text-decoration: none; color: var(--cyan-neon); font-size: 0.85rem;}
         
-        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .project-card { border-radius: 8px; border: 1px solid var(--border-neon); overflow: hidden; transition: 0.3s; background: rgba(5, 15, 30, 0.4);}
+        /* Proyek Tanpa Gambar */
+        .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .project-card { border-radius: 8px; border: 1px solid var(--border-neon); padding: 18px; transition: 0.3s; background: rgba(5, 15, 30, 0.6);}
         .project-card:hover { border-color: var(--cyan-neon); box-shadow: var(--glow-neon); transform: translateY(-3px);}
-        .project-img { width: 100%; height: 120px; object-fit: cover;}
         
-        .project-body { padding: 12px;}
-        .project-badge-group { display: flex; gap: 5px; margin-bottom: 6px;}
+        .project-badge-group { display: flex; gap: 5px; margin-bottom: 10px;}
         .project-badge { font-family: var(--font-cyber); font-size: 0.65rem; padding: 2px 6px; border-radius: 2px; }
-        .badge-blue { background: rgba(0, 136, 255, 0.15); color: var(--blue-neon); }
-        .badge-green { background: rgba(0, 255, 136, 0.15); color: #00ff88; }
-        .badge-orange { background: rgba(255, 136, 0, 0.15); color: #ff8800; }
+        .badge-blue { background: rgba(0, 136, 255, 0.15); color: var(--blue-neon); border: 1px solid var(--blue-neon); }
+        .badge-green { background: rgba(0, 255, 136, 0.15); color: #00ff88; border: 1px solid #00ff88; }
+        .badge-orange { background: rgba(255, 136, 0, 0.15); color: #ff8800; border: 1px solid #ff8800; }
         
-        .project-card h4 { font-family: var(--font-cyber); font-size: 0.85rem; color: #fff; margin-bottom: 4px;}
-        .project-card p.stack { font-size: 0.75rem; color: #888; margin-bottom: 8px;}
-        .project-card p.desc { font-size: 0.75rem; color: #bbb; margin-bottom: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
-        .link-project-sm { color: var(--cyan-neon); font-size: 0.75rem; text-decoration: none; font-weight: 600;}
+        .project-card h4 { font-family: var(--font-cyber); font-size: 1rem; color: #fff; margin-bottom: 6px;}
+        .project-card p.stack { font-size: 0.8rem; color: var(--cyan-neon); margin-bottom: 10px;}
+        .project-card p.desc { font-size: 0.85rem; color: #bbb; margin-bottom: 15px; line-height: 1.5; }
+        .link-project-sm { color: var(--cyan-neon); font-size: 0.8rem; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;}
 
         /* --- Right Side --- */
         .right-side { display: flex; flex-direction: column; gap: 20px;}
@@ -202,7 +203,7 @@
         .skill-item i { font-size: 1.4rem; color: var(--cyan-neon); }
         
         .contact-data-list { list-style: none; font-size: 0.85rem; color: #bbb; }
-        .contact-data-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .contact-data-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; word-break: break-word;}
         .contact-data-list i { color: var(--cyan-neon); width: 16px; }
         
         .btn-work-together {
@@ -219,14 +220,13 @@
         /* --- Responsive Queries --- */
         @media (max-width: 1100px) {
             .main-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: repeat(3, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
             .skill-grid { grid-template-columns: repeat(6, 1fr); }
         }
         @media (max-width: 768px) {
             nav ul, .nav-actions { display: none; }
             .projects-grid { grid-template-columns: 1fr; }
-            .about-me-card { grid-template-columns: 1fr; }
-            .swiper-text-content h1 { font-size: 1.3rem; }
+            .swiper-text-content h1 { font-size: 1.2rem; }
             .skill-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
@@ -248,7 +248,7 @@
             </ul>
         </nav>
         <div class="nav-actions">
-            <a href="#" class="btn-cyber"><i class="fa-solid fa-download"></i> Download CV</a>
+            <a href="https://github.com/hadist97446" target="_blank" class="btn-cyber"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
     </header>
 
@@ -259,24 +259,23 @@
         <aside class="profile-side">
             <div class="cyber-card">
                 <div class="avatar-container">
-                    <img src="https://picsum.photos/id/64/200/200" alt="Avatar Hadist">
+                    <!-- Foto Profil Pertama dari Drive -->
+                    <img src="https://lh3.googleusercontent.com/d/12wV-VDUYMVfluOgrEXd1M1FF96JlyH8V" alt="Avatar Hadist">
                 </div>
                 <h2>Hadist</h2>
                 <h3>Informatics Student</h3>
-                <p class="badge-student">S1 Informatika | Kelas 5B</p>
+                <p class="badge-student">S1 Informatika | UBSI</p>
                 
                 <ul class="profile-data-list">
                     <li><i class="fa-solid fa-id-card"></i> NIM : 15230663</li>
-                    <li><i class="fa-solid fa-envelope"></i> Email : hadist@email.com</li>
-                    <li><i class="fa-solid fa-location-dot"></i> Lokasi : Pontianak, Indonesia</li>
+                    <li><i class="fa-solid fa-envelope"></i> kingmaster97446@gmail.com</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Pontianak, Indonesia</li>
                 </ul>
                 
+                <!-- Hanya 2 Tombol Sosmed: Instagram dan GitHub -->
                 <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#"><i class="fa-brands fa-telegram"></i></a>
-                    <a href="#"><i class="fa-brands fa-discord"></i></a>
+                    <a href="https://www.instagram.com/what_aan?stkn=MTNjeGRxd280NWQxeQ==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com/hadist97446" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
                 </div>
                 
                 <p class="motto">“Keep Coding, Keep Growing”</p>
@@ -286,20 +285,23 @@
         <!-- Center Side: Slider, About, Projects -->
         <section class="center-side">
             
-            <!-- Swiper Slider -->
+            <!-- Swiper Slider (Menggunakan 6 foto Google Drive tersisa) -->
             <div class="cyber-card swiper-card">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="https://picsum.photos/1000/500?random=1" alt="Slide 1">
+                            <img src="https://lh3.googleusercontent.com/d/1384we0txmkqa8sQg5s94sjPqxZiyz0h3" alt="Slide 1">
                             <div class="swiper-text-content">
                                 <p class="meta">Dream • Code • Build • Repeat</p>
                                 <h1>Langkah kecil hari ini,<br>untuk masa depan yang <span class="highlight">besar</span>.</h1>
                                 <p class="desc">Belajar, berkarya, dan terus berkembang di dunia teknologi.</p>
                             </div>
                         </div>
-                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=2" alt="Slide 2"></div>
-                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=3" alt="Slide 3"></div>
+                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1GKG4StRraeLPxixARD0y8qonIobx8Yct" alt="Slide 2"></div>
+                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1Ant6bJ1u1ydIGxn-PYM2v5ahgpyKFY_H" alt="Slide 3"></div>
+                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1U_2CHEvyVcnYHqhDU6OKdZ3lZYNr5U4X" alt="Slide 4"></div>
+                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1ULrefz2WJpZt09v52oc49ggSXzOOldac" alt="Slide 5"></div>
+                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1Hou_PrJYhP7O7EsIGxQ8t1L6lj6NXeAi" alt="Slide 6"></div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -308,63 +310,61 @@
 
             <!-- About Me -->
             <div class="cyber-card about-me-card" id="about">
-                <div>
-                    <h2 class="cyber-title"><i class="fa-solid fa-user-gear"></i> About Me</h2>
-                    <p class="about-text">
-                        Halo! Saya Hadist, mahasiswa S1 Informatika di Universitas Bina Sarana Informatika (UBSI). Saya memiliki ketertarikan di bidang pengembangan web, mobile app, AI, dan sistem. Saya selalu berusaha belajar hal baru, mengerjakan proyek nyata, dan terus meningkatkan kemampuan untuk menjadi developer profesional.
-                    </p>
-                    <a href="#" class="btn-cyber">Lihat Selengkapnya &rarr;</a>
-                </div>
+                <h2 class="cyber-title"><i class="fa-solid fa-user-gear"></i> About Me</h2>
+                <p class="about-text">
+                    Halo! Saya Hadist, mahasiswa S1 Informatika di Universitas Bina Sarana Informatika (UBSI). Saya memiliki ketertarikan di bidang pengembangan web, mobile app, Internet of Things (IoT), dan pemograman sistem. Saya selalu berusaha belajar hal baru, mengerjakan proyek nyata, dan terus meningkatkan kemampuan untuk menjadi developer profesional.
+                </p>
             </div>
 
-            <!-- My Projects -->
+            <!-- My Projects (Penjelasan Tanpa Gambar) -->
             <div class="cyber-card" id="projects">
                 <div class="projects-header">
                     <h2 class="cyber-title"><i class="fa-solid fa-folder-open"></i> My Projects</h2>
-                    <a href="#" class="btn-link-sm">Lihat Semua &rarr;</a>
                 </div>
                 
                 <div class="projects-grid">
-                    <!-- Card 1 -->
+                    <!-- Project 1 -->
                     <div class="project-card">
-                        <img src="https://picsum.photos/300/200?random=10" class="project-img" alt="Proyek 1">
-                        <div class="project-body">
-                            <div class="project-badge-group">
-                                <span class="project-badge badge-blue">Web Dev</span>
-                            </div>
-                            <h4>Sistem Inventaris Lab</h4>
-                            <p class="stack">CodeIgniter 4 + Bootstrap</p>
-                            <p class="desc">Aplikasi manajemen inventaris laboratorium kampus dengan fitur lengkap.</p>
-                            <a href="#" class="link-project-sm">View Project &rarr;</a>
+                        <div class="project-badge-group">
+                            <span class="project-badge badge-blue">Web Development</span>
                         </div>
+                        <h4>Sistem Inventaris Lab Kampus</h4>
+                        <p class="stack">PHP + CodeIgniter + Bootstrap</p>
+                        <p class="desc">Aplikasi web yang berfungsi untuk mempermudah pencatatan, peminjaman, serta pemantauan stok alat dan fasilitas laboratorium kampus secara terstruktur.</p>
+                        <a href="https://github.com/hadist97446" target="_blank" class="link-project-sm">Detail Proyek <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     
-                    <!-- Card 2 -->
+                    <!-- Project 2 -->
                     <div class="project-card">
-                        <img src="https://picsum.photos/300/200?random=11" class="project-img" alt="Proyek 2">
-                        <div class="project-body">
-                            <div class="project-badge-group">
-                                <span class="project-badge badge-green">Mobile App</span>
-                            </div>
-                            <h4>Sewa Alat Camping</h4>
-                            <p class="stack">Flutter + Firebase</p>
-                            <p class="desc">Aplikasi penyewaan alat camping dengan fitur booking dan kalender.</p>
-                            <a href="#" class="link-project-sm">View Project &rarr;</a>
+                        <div class="project-badge-group">
+                            <span class="project-badge badge-green">Mobile App</span>
                         </div>
+                        <h4>Aplikasi Rental Mobil</h4>
+                        <p class="stack">Flutter + Firebase + PHP</p>
+                        <p class="desc">Aplikasi berbasis mobile yang menyediakan layanan pemesanan rental mobil online lengkap dengan sistem manajemen katalog dan riwayat pemesanan.</p>
+                        <a href="https://github.com/hadist97446" target="_blank" class="link-project-sm">Detail Proyek <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
 
-                    <!-- Card 3 -->
+                    <!-- Project 3 -->
                     <div class="project-card">
-                        <img src="https://picsum.photos/300/200?random=12" class="project-img" alt="Proyek 3">
-                        <div class="project-body">
-                            <div class="project-badge-group">
-                                <span class="project-badge badge-orange">Data Science</span>
-                            </div>
-                            <h4>Segmentasi Makanan</h4>
-                            <p class="stack">K-Means + Streamlit</p>
-                            <p class="desc">Segmentasi makanan berdasarkan kandungan gizi menggunakan K-Means.</p>
-                            <a href="#" class="link-project-sm">View Project &rarr;</a>
+                        <div class="project-badge-group">
+                            <span class="project-badge badge-orange">Automation & Tools</span>
                         </div>
+                        <h4>Auto Piano Keyboard Script</h4>
+                        <p class="stack">AutoHotkey Scripting</p>
+                        <p class="desc">Skrip otomatisasi berbasis AutoHotkey yang mengonversi notasi lagu menjadi input keyboard presisi untuk memainkan instrumen piano virtual.</p>
+                        <a href="https://github.com/hadist97446" target="_blank" class="link-project-sm">Detail Proyek <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-badge-group">
+                            <span class="project-badge badge-blue">IoT & Hardware</span>
+                        </div>
+                        <h4>Sistem Kontrol Microcontroller</h4>
+                        <p class="stack">ESP8266 / ESP32 + C++</p>
+                        <p class="desc">Proyek hardware berbasis mikrokontroler untuk membaca data sensor digital dan mengirimkan kontrol perintah secara wireless.</p>
+                        <a href="https://github.com/hadist97446" target="_blank" class="link-project-sm">Detail Proyek <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -407,22 +407,22 @@
                         <span>Git</span>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-brain"></i></div>
-                        <span>AI</span>
+                        <div class="skill-icon-wrapper"><i class="fa-solid fa-code"></i></div>
+                        <span>Flutter</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Contact -->
+            <!-- Contact Data Sesuai Permintaan -->
             <div class="cyber-card" id="contact">
                 <h2 class="cyber-title"><i class="fa-solid fa-headset"></i> Contact Me</h2>
                 <ul class="contact-data-list">
-                    <li><i class="fa-solid fa-envelope"></i> hadist@email.com</li>
-                    <li><i class="fa-brands fa-whatsapp"></i> 0821-xxxx-xxxx</li>
-                    <li><i class="fa-brands fa-instagram"></i> @hadist_</li>
-                    <li><i class="fa-brands fa-github"></i> github.com/hadist</li>
+                    <li><i class="fa-solid fa-envelope"></i> kingmaster97446@gmail.com</li>
+                    <li><i class="fa-brands fa-whatsapp"></i> 085161666685</li>
+                    <li><i class="fa-brands fa-instagram"></i> what_aan</li>
+                    <li><i class="fa-brands fa-github"></i> hadist97446</li>
                 </ul>
-                <a href="#" class="btn-work-together"><i class="fa-solid fa-paper-plane"></i> Let's Work Together</a>
+                <a href="https://wa.me/6285161666685" target="_blank" class="btn-work-together"><i class="fa-solid fa-paper-plane"></i> Hubungi Saya</a>
             </div>
 
         </section>
