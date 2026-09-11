@@ -102,7 +102,6 @@
             display: flex; align-items: center; gap: 10px;
             font-family: var(--font-cyber); font-weight: 900; font-size: 1.4rem; color: #fff;
         }
-        .logo-group img { height: 30px; width: 30px; }
         
         nav ul { display: flex; list-style: none; gap: 20px; }
         nav ul li a {
@@ -151,10 +150,9 @@
         
         .profile-side .motto { margin-top: 25px; color: var(--cyan-neon); font-size: 0.75rem; letter-spacing: 1px; line-height: 1.2;}
 
-        /* --- Center (Hero/Slider, About, Projects) --- */
+        /* --- Center Side --- */
         .center-side { display: flex; flex-direction: column; gap: 20px; }
         
-        /* 1. Gambar Slide (Swiper) */
         .swiper-card { padding: 0 !important; overflow: hidden; height: 380px; }
         .swiper { width: 100%; height: 100%; }
         .swiper-slide { position: relative; }
@@ -172,92 +170,73 @@
         .swiper-button-prev, .swiper-button-next { color: rgba(255,255,255,0.4); }
         .swiper-button-prev:after, .swiper-button-next:after { font-size: 18px; font-weight: 700;}
 
-        /* 2. About Me */
-        .about-me-card { display: grid; grid-template-columns: 1fr 200px; gap: 20px; align-items: center; }
+        .about-me-card { display: grid; grid-template-columns: 1fr 180px; gap: 20px; align-items: center; }
         .about-text { color: #ccc; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;}
-        .about-robot { position: relative; width: 100%;}
-        .about-robot img { width: 100%; height: auto; object-fit: contain; transform: scaleX(-1);}
-        .about-robot .speech-bubble {
-            position: absolute; top: -20px; left: -50px;
-            background: rgba(0,243,255,0.05); border: 1px solid var(--border-neon); color: #fff;
-            padding: 10px; font-size: 0.7rem; font-family: var(--font-cyber); border-radius: 4px; line-height: 1.3;
-        }
-
-        /* 3. My Projects */
+        
         .projects-header { display: flex; justify-content: space-between; align-items: center; }
         .btn-link-sm { text-decoration: none; color: var(--cyan-neon); font-size: 0.85rem;}
         
         .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .project-card { border-radius: 8px; border: 1px solid var(--border-neon); overflow: hidden; transition: 0.3s;}
+        .project-card { border-radius: 8px; border: 1px solid var(--border-neon); overflow: hidden; transition: 0.3s; background: rgba(5, 15, 30, 0.4);}
         .project-card:hover { border-color: var(--cyan-neon); box-shadow: var(--glow-neon); transform: translateY(-3px);}
-        .project-img { width: 100%; height: 130px; object-fit: cover;}
+        .project-img { width: 100%; height: 120px; object-fit: cover;}
         
-        .project-body { padding: 15px;}
-        .project-badge-group { display: flex; gap: 5px; margin-bottom: 8px;}
+        .project-body { padding: 12px;}
+        .project-badge-group { display: flex; gap: 5px; margin-bottom: 6px;}
         .project-badge { font-family: var(--font-cyber); font-size: 0.65rem; padding: 2px 6px; border-radius: 2px; }
-        .badge-blue { background: rgba(0, 136, 255, 0.1); color: var(--blue-neon); }
-        .badge-green { background: rgba(0, 255, 136, 0.1); color: #00ff88; }
+        .badge-blue { background: rgba(0, 136, 255, 0.15); color: var(--blue-neon); }
+        .badge-green { background: rgba(0, 255, 136, 0.15); color: #00ff88; }
+        .badge-orange { background: rgba(255, 136, 0, 0.15); color: #ff8800; }
         
-        .project-card h4 { font-family: var(--font-cyber); font-size: 0.9rem; color: #fff; margin-bottom: 5px;}
-        .project-card p.stack { font-size: 0.75rem; color: #aaa; margin-bottom: 10px;}
-        .project-card p.desc { font-size: 0.8rem; color: #ccc; margin-bottom: 15px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
-        
-        .link-project-sm { color: var(--cyan-neon); font-size: 0.75rem; text-decoration: none; font-weight: 500;}
+        .project-card h4 { font-family: var(--font-cyber); font-size: 0.85rem; color: #fff; margin-bottom: 4px;}
+        .project-card p.stack { font-size: 0.75rem; color: #888; margin-bottom: 8px;}
+        .project-card p.desc { font-size: 0.75rem; color: #bbb; margin-bottom: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
+        .link-project-sm { color: var(--cyan-neon); font-size: 0.75rem; text-decoration: none; font-weight: 600;}
 
-        /* --- Right Sidebar (Skills, Contact) --- */
+        /* --- Right Side --- */
         .right-side { display: flex; flex-direction: column; gap: 20px;}
         
-        /* 1. My Skills */
         .skill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .skill-item { text-align: center; font-size: 0.8rem; color: #bbb; display: flex; flex-direction: column; align-items: center;}
-        .skill-icon-wrapper { width: 100%; aspect-ratio: 1/1; border: 1px solid var(--border-neon); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 5px;}
-        .skill-item img { height: 20px; object-fit: contain;}
+        .skill-item { text-align: center; font-size: 0.75rem; color: #bbb; display: flex; flex-direction: column; align-items: center;}
+        .skill-icon-wrapper { width: 100%; aspect-ratio: 1/1; border: 1px solid var(--border-neon); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 5px; background: rgba(0, 243, 255, 0.03);}
+        .skill-item i { font-size: 1.4rem; color: var(--cyan-neon); }
         
-        /* 2. Contact Me */
-        .contact-card .contact-data-list li { color: #bbb;}
+        .contact-data-list { list-style: none; font-size: 0.85rem; color: #bbb; }
+        .contact-data-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .contact-data-list i { color: var(--cyan-neon); width: 16px; }
         
         .btn-work-together {
-            background-color: transparent; border: 1px solid var(--border-neon);
+            background-color: transparent; border: 1px solid var(--cyan-neon);
             width: 100%; color: #fff; font-family: var(--font-cyber);
             text-transform: uppercase; letter-spacing: 1px; padding: 10px;
-            font-size: 0.9rem; margin-top: 20px; border-radius: 4px; cursor: pointer; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
+            font-size: 0.8rem; margin-top: 15px; border-radius: 4px; cursor: pointer; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;
         }
         .btn-work-together:hover {
-            border-color: var(--cyan-neon); background-color: rgba(0, 243, 255, 0.05); color: var(--cyan-neon);
-            box-shadow: var(--glow-neon);
+            background-color: var(--cyan-neon); color: #000; box-shadow: var(--glow-neon);
         }
 
-        /* --- Footer --- */
-        footer { margin-top: 60px; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.03); text-align: center;}
-        .bottom-logo { width: 140px; }
-        
         /* --- Responsive Queries --- */
-        @media (max-width: 1200px) {
-            .main-grid { grid-template-columns: 240px 1fr 240px; }
-            .skill-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 992px) {
+        @media (max-width: 1100px) {
             .main-grid { grid-template-columns: 1fr; }
-            .profile-side { position: relative; width: 100%; top: 0;}
-            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: repeat(3, 1fr); }
+            .skill-grid { grid-template-columns: repeat(6, 1fr); }
         }
         @media (max-width: 768px) {
             nav ul, .nav-actions { display: none; }
             .projects-grid { grid-template-columns: 1fr; }
             .about-me-card { grid-template-columns: 1fr; }
-            .about-robot { display: none; }
-            .swiper-text-content h1 { font-size: 1.4rem; }
+            .swiper-text-content h1 { font-size: 1.3rem; }
+            .skill-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <!-- --- Header / Nav --- -->
+    <!-- Header / Nav -->
     <header>
         <div class="logo-group">
-            <img src="https://h-project.site/assets/images/h-vector.png" alt="Logo H"> <!-- Ganti URL Logo H jika perlu -->
-            HADIST
+            <i class="fa-solid fa-cube" style="color: var(--cyan-neon);"></i> HADIST
         </div>
         <nav>
             <ul>
@@ -269,19 +248,18 @@
             </ul>
         </nav>
         <div class="nav-actions">
-            <i class="fa-regular fa-bell" style="color: #666; font-size: 1rem;"></i>
             <a href="#" class="btn-cyber"><i class="fa-solid fa-download"></i> Download CV</a>
         </div>
     </header>
 
-    <!-- --- Main Content Grid --- -->
-    <main class="main-grid">
+    <!-- Main Content -->
+    <main class="main-grid" id="home">
 
-        <!-- --- Left Side (Profil) --- -->
+        <!-- Left Side: Profile -->
         <aside class="profile-side">
             <div class="cyber-card">
                 <div class="avatar-container">
-                    <img src="https://picsum.photos/id/1/200/200" alt="Avatar Hadist"> <!-- URL Avatar Hadist -->
+                    <img src="https://picsum.photos/id/64/200/200" alt="Avatar Hadist">
                 </div>
                 <h2>Hadist</h2>
                 <h3>Informatics Student</h3>
@@ -290,7 +268,7 @@
                 <ul class="profile-data-list">
                     <li><i class="fa-solid fa-id-card"></i> NIM : 15230663</li>
                     <li><i class="fa-solid fa-envelope"></i> Email : hadist@email.com</li>
-                    <li><i class="fa-solid fa-map-marker-alt"></i> Lokasi : Pontianak, Indonesia</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Lokasi : Pontianak, Indonesia</li>
                 </ul>
                 
                 <div class="social-links">
@@ -305,61 +283,51 @@
             </div>
         </aside>
 
-        <!-- --- Center Side (Hero, About, Projects) --- -->
+        <!-- Center Side: Slider, About, Projects -->
         <section class="center-side">
             
-            <!-- 1. Swiper Slider (Untuk 6 Foto) -->
+            <!-- Swiper Slider -->
             <div class="cyber-card swiper-card">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <!-- Slide 1 (Default) -->
                         <div class="swiper-slide">
-                            <img src="https://picsum.photos/1000/500?random=1" alt="Cyber Background">
+                            <img src="https://picsum.photos/1000/500?random=1" alt="Slide 1">
                             <div class="swiper-text-content">
-                                <p class="meta">Code - Build - Repeat</p>
+                                <p class="meta">Dream • Code • Build • Repeat</p>
                                 <h1>Langkah kecil hari ini,<br>untuk masa depan yang <span class="highlight">besar</span>.</h1>
                                 <p class="desc">Belajar, berkarya, dan terus berkembang di dunia teknologi.</p>
                             </div>
                         </div>
-                        <!-- Tambahkan Slide 2-6 di bawah ini -->
-                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=2" alt="Foto 2"></div>
-                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=3" alt="Foto 3"></div>
-                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=4" alt="Foto 4"></div>
-                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=5" alt="Foto 5"></div>
-                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=6" alt="Foto 6"></div>
+                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=2" alt="Slide 2"></div>
+                        <div class="swiper-slide"><img src="https://picsum.photos/1000/500?random=3" alt="Slide 3"></div>
                     </div>
-                    <!-- Navigation Buttons -->
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
             </div>
 
-            <!-- 2. About Me Section -->
-            <div class="cyber-card about-me-card">
+            <!-- About Me -->
+            <div class="cyber-card about-me-card" id="about">
                 <div>
                     <h2 class="cyber-title"><i class="fa-solid fa-user-gear"></i> About Me</h2>
-                    <div class="about-text">
-                        Halo! Saya Hadist, mahasiswa S1 Informatika di Universitas Bina Sarana Informatika (UBSI). Saya memiliki ketertarikan di bidang pengembangan web, mobile app, AI, dan sistem. Saya selalu berusaha belajar hal baru dan terus meningkatkan kemampuan untuk menjadi developer profesional.
-                    </div>
+                    <p class="about-text">
+                        Halo! Saya Hadist, mahasiswa S1 Informatika di Universitas Bina Sarana Informatika (UBSI). Saya memiliki ketertarikan di bidang pengembangan web, mobile app, AI, dan sistem. Saya selalu berusaha belajar hal baru, mengerjakan proyek nyata, dan terus meningkatkan kemampuan untuk menjadi developer profesional.
+                    </p>
                     <a href="#" class="btn-cyber">Lihat Selengkapnya &rarr;</a>
-                </div>
-                <div class="about-robot">
-                    <div class="speech-bubble">“Teknologi bukan hanya<br>alat, tapi jembatan menuju<br>masa depan.”</div>
-                    <img src="https://blush.design/api/download?shareUri=8T06O6YQ9EwR_yv5&w=800&h=800&fm=png" alt="Robot">
                 </div>
             </div>
 
-            <!-- 3. My Projects Section -->
-            <div class="cyber-card">
+            <!-- My Projects -->
+            <div class="cyber-card" id="projects">
                 <div class="projects-header">
-                    <h2 class="cyber-title"><i class="fa-solid fa-file-code"></i> My Projects</h2>
+                    <h2 class="cyber-title"><i class="fa-solid fa-folder-open"></i> My Projects</h2>
                     <a href="#" class="btn-link-sm">Lihat Semua &rarr;</a>
                 </div>
                 
                 <div class="projects-grid">
-                    <!-- Project 1 -->
+                    <!-- Card 1 -->
                     <div class="project-card">
-                        <img src="https://h-project.site/assets/images/portfolio/sist-inventaris.png" class="project-img" alt="Proyek 1">
+                        <img src="https://picsum.photos/300/200?random=10" class="project-img" alt="Proyek 1">
                         <div class="project-body">
                             <div class="project-badge-group">
                                 <span class="project-badge badge-blue">Web Dev</span>
@@ -367,4 +335,114 @@
                             <h4>Sistem Inventaris Lab</h4>
                             <p class="stack">CodeIgniter 4 + Bootstrap</p>
                             <p class="desc">Aplikasi manajemen inventaris laboratorium kampus dengan fitur lengkap.</p>
-                            <a href="#" class="link-project-sm">View Project &rarr;
+                            <a href="#" class="link-project-sm">View Project &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="project-card">
+                        <img src="https://picsum.photos/300/200?random=11" class="project-img" alt="Proyek 2">
+                        <div class="project-body">
+                            <div class="project-badge-group">
+                                <span class="project-badge badge-green">Mobile App</span>
+                            </div>
+                            <h4>Sewa Alat Camping</h4>
+                            <p class="stack">Flutter + Firebase</p>
+                            <p class="desc">Aplikasi penyewaan alat camping dengan fitur booking dan kalender.</p>
+                            <a href="#" class="link-project-sm">View Project &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="project-card">
+                        <img src="https://picsum.photos/300/200?random=12" class="project-img" alt="Proyek 3">
+                        <div class="project-body">
+                            <div class="project-badge-group">
+                                <span class="project-badge badge-orange">Data Science</span>
+                            </div>
+                            <h4>Segmentasi Makanan</h4>
+                            <p class="stack">K-Means + Streamlit</p>
+                            <p class="desc">Segmentasi makanan berdasarkan kandungan gizi menggunakan K-Means.</p>
+                            <a href="#" class="link-project-sm">View Project &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Right Side: Skills & Contact -->
+        <section class="right-side">
+            
+            <!-- Skills -->
+            <div class="cyber-card" id="skills">
+                <h2 class="cyber-title"><i class="fa-solid fa-microchip"></i> My Skills</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon-wrapper"><i class="fa-brands fa-html5"></i></div>
+                        <span>HTML</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon-wrapper"><i class="fa-brands fa-css3-alt"></i></div>
+                        <span>CSS</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon-wrapper"><i class="fa-brands fa-js"></i></div>
+                        <span>JS</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon-wrapper"><i class="fa-brands fa-php"></i></div>
+                        <span>PHP</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon-wrapper"><i class="fa-brands fa-python"></i></div>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon-wrapper"><i class="fa-solid fa-database"></i></div>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon-wrapper"><i class="fa-brands fa-git-alt"></i></div>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon-wrapper"><i class="fa-solid fa-brain"></i></div>
+                        <span>AI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="cyber-card" id="contact">
+                <h2 class="cyber-title"><i class="fa-solid fa-headset"></i> Contact Me</h2>
+                <ul class="contact-data-list">
+                    <li><i class="fa-solid fa-envelope"></i> hadist@email.com</li>
+                    <li><i class="fa-brands fa-whatsapp"></i> 0821-xxxx-xxxx</li>
+                    <li><i class="fa-brands fa-instagram"></i> @hadist_</li>
+                    <li><i class="fa-brands fa-github"></i> github.com/hadist</li>
+                </ul>
+                <a href="#" class="btn-work-together"><i class="fa-solid fa-paper-plane"></i> Let's Work Together</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Swiper.js Script (Slider Interaktif) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html>
