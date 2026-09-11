@@ -1,448 +1,647 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HADIST - Portfolio Futuristik</title>
+    <title>Portfolio - Hadist</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome Ikon -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Swiper.js CSS (untuk slider foto) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Swiper CSS & JS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <style>
-        :root {
-            --cyan-neon: #00f3ff;
-            --blue-neon: #0088ff;
-            --magenta-neon: #ff0055;
-            --bg-dark: #02050e;
-            --bg-card: rgba(10, 25, 47, 0.65);
-            --border-neon: rgba(0, 243, 255, 0.3);
-            --glow-neon: 0 0 15px rgba(0, 243, 255, 0.4);
-            --font-main: 'Rajdhani', sans-serif;
-            --font-cyber: 'Orbitron', sans-serif;
-        }
-
-        /* --- Reset & Base Styles --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: var(--font-main);
-            background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 50% 50%, rgba(10, 40, 80, 0.5) 0%, rgba(2, 5, 14, 1) 100%);
-            color: #fff;
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
             overflow-x: hidden;
-            line-height: 1.6;
         }
-
-        /* --- Global Cyberpunk Card Styles --- */
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        /* Futuristic Cyber Card Effects */
         .cyber-card {
-            background-color: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-neon);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: var(--glow-neon);
-            position: relative;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(3, 7, 18, 0.95) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
         }
-        
-        .cyber-title {
-            font-family: var(--font-cyber);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #fff;
-            border-left: 3px solid var(--cyan-neon);
-            padding-left: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
+        .cyber-card:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.15);
         }
-        
-        .btn-cyber {
-            font-family: var(--font-cyber);
-            background: transparent;
-            border: 1px solid var(--cyan-neon);
-            color: var(--cyan-neon);
-            padding: 8px 16px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            cursor: pointer;
+
+        .cyber-border-glow {
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+            border: 2px solid #06b6d4;
+        }
+
+        /* Swiper Custom Navigation Buttons */
+        .swiper-button-next, .swiper-button-prev {
+            color: #06b6d4 !important;
+            background: rgba(3, 7, 18, 0.7);
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 50%;
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 18px !important;
+            font-weight: bold;
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: #06b6d4;
+            color: #030712 !important;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+        }
+        .swiper-pagination-bullet {
+            background: #475569 !important;
+            opacity: 0.7;
+        }
+        .swiper-pagination-bullet-active {
+            background: #06b6d4 !important;
+            width: 24px !important;
+            border-radius: 6px !important;
+            opacity: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
             border-radius: 4px;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
         }
-        .btn-cyber:hover {
-            background-color: var(--cyan-neon);
-            color: #000;
-            box-shadow: 0 0 20px var(--cyan-neon);
-        }
-
-        /* --- Header / Nav --- */
-        header {
-            width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            background: linear-gradient(180deg, rgba(2, 5, 14, 0.95) 0%, rgba(2, 5, 14, 0) 100%);
-            backdrop-filter: blur(5px);
-        }
-        .logo-group {
-            display: flex; align-items: center; gap: 10px;
-            font-family: var(--font-cyber); font-weight: 900; font-size: 1.4rem; color: #fff;
-        }
-        
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a {
-            font-family: var(--font-cyber); text-transform: uppercase; text-decoration: none;
-            color: #aaa; font-size: 0.9rem; transition: 0.3s;
-        }
-        nav ul li a:hover { color: #fff; text-shadow: var(--glow-neon); }
-        
-        .nav-actions { display: flex; align-items: center; gap: 15px; }
-
-        /* --- Main Layout Grid --- */
-        .main-grid {
-            margin-top: 100px;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: 280px 1fr 280px;
-            gap: 20px;
-            align-items: start;
-        }
-
-        /* --- Left Sidebar (Profile) --- */
-        .profile-side .cyber-card { padding: 30px 20px; text-align: center; border-radius: 12px;}
-        .profile-side .avatar-container {
-            width: 120px; height: 120px; margin: 0 auto 20px;
-            border-radius: 50%; padding: 3px;
-            background: conic-gradient(from 180deg at 50% 50%, var(--cyan-neon), var(--magenta-neon), var(--cyan-neon));
-            box-shadow: 0 0 15px rgba(0,243,255,0.7);
-            overflow: hidden;
-        }
-        .profile-side img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover;}
-        
-        .profile-side h2 { font-family: var(--font-cyber); font-size: 1.6rem; margin-bottom: 5px; color: #fff; }
-        .profile-side h3 { color: #aaa; font-weight: 400; font-size: 0.9rem; margin-bottom: 10px; }
-        
-        .badge-student {
-            background: rgba(0, 136, 255, 0.15); color: var(--blue-neon); border: 1px solid var(--blue-neon);
-            font-family: var(--font-cyber); padding: 4px 10px; font-size: 0.7rem; border-radius: 4px;
-        }
-
-        .profile-data-list { list-style: none; text-align: left; margin: 25px 0 20px; font-size: 0.9rem; color: #bbb;}
-        .profile-data-list li { margin-bottom: 10px; display: flex; gap: 10px; align-items: center;}
-        .profile-data-list i { color: var(--cyan-neon); width: 15px; text-align: center;}
-        
-        .social-links { display: flex; justify-content: center; gap: 20px; font-size: 1.5rem;}
-        .social-links a { color: #888; transition: 0.3s; }
-        .social-links a:hover { color: var(--cyan-neon); text-shadow: var(--glow-neon); transform: scale(1.1);}
-        
-        .profile-side .motto { margin-top: 25px; color: var(--cyan-neon); font-size: 0.75rem; letter-spacing: 1px; line-height: 1.2;}
-
-        /* --- Center Side --- */
-        .center-side { display: flex; flex-direction: column; gap: 20px; }
-        
-        .swiper-card { padding: 0 !important; overflow: hidden; height: 380px; }
-        .swiper { width: 100%; height: 100%; }
-        .swiper-slide { position: relative; }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .swiper-text-content {
-            position: absolute; bottom: 30px; left: 30px; right: 30px;
-            color: #fff; font-family: var(--font-cyber); text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
-            background: rgba(2, 5, 14, 0.6); padding: 15px; border-radius: 6px; border-left: 2px solid var(--cyan-neon);
-        }
-        .swiper-text-content p.meta { color: var(--cyan-neon); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;}
-        .swiper-text-content h1 { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
-        .swiper-text-content h1 span.highlight { color: var(--cyan-neon); text-shadow: var(--glow-neon); }
-        .swiper-text-content p.desc { color: #ddd; font-family: var(--font-main); font-size: 0.95rem;}
-        
-        .swiper-button-prev, .swiper-button-next { color: var(--cyan-neon); }
-        .swiper-button-prev:after, .swiper-button-next:after { font-size: 20px; font-weight: 700;}
-
-        .about-me-card { display: block; }
-        .about-text { color: #ccc; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;}
-        
-        .projects-header { display: flex; justify-content: space-between; align-items: center; }
-        .btn-link-sm { text-decoration: none; color: var(--cyan-neon); font-size: 0.85rem;}
-        
-        /* Proyek Tanpa Gambar */
-        .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .project-card { border-radius: 8px; border: 1px solid var(--border-neon); padding: 18px; transition: 0.3s; background: rgba(5, 15, 30, 0.6);}
-        .project-card:hover { border-color: var(--cyan-neon); box-shadow: var(--glow-neon); transform: translateY(-3px);}
-        
-        .project-badge-group { display: flex; gap: 5px; margin-bottom: 10px;}
-        .project-badge { font-family: var(--font-cyber); font-size: 0.65rem; padding: 2px 6px; border-radius: 2px; }
-        .badge-blue { background: rgba(0, 136, 255, 0.15); color: var(--blue-neon); border: 1px solid var(--blue-neon); }
-        .badge-green { background: rgba(0, 255, 136, 0.15); color: #00ff88; border: 1px solid #00ff88; }
-        .badge-orange { background: rgba(255, 136, 0, 0.15); color: #ff8800; border: 1px solid #ff8800; }
-        
-        .project-card h4 { font-family: var(--font-cyber); font-size: 1rem; color: #fff; margin-bottom: 6px;}
-        .project-card p.stack { font-size: 0.8rem; color: var(--cyan-neon); margin-bottom: 10px;}
-        .project-card p.desc { font-size: 0.85rem; color: #bbb; margin-bottom: 15px; line-height: 1.5; }
-        .link-project-sm { color: var(--cyan-neon); font-size: 0.8rem; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;}
-
-        /* --- Right Side --- */
-        .right-side { display: flex; flex-direction: column; gap: 20px;}
-        
-        .skill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .skill-item { text-align: center; font-size: 0.75rem; color: #bbb; display: flex; flex-direction: column; align-items: center;}
-        .skill-icon-wrapper { width: 100%; aspect-ratio: 1/1; border: 1px solid var(--border-neon); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 5px; background: rgba(0, 243, 255, 0.03);}
-        .skill-item i { font-size: 1.4rem; color: var(--cyan-neon); }
-        
-        .contact-data-list { list-style: none; font-size: 0.85rem; color: #bbb; }
-        .contact-data-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; word-break: break-word;}
-        .contact-data-list i { color: var(--cyan-neon); width: 16px; }
-        
-        .btn-work-together {
-            background-color: transparent; border: 1px solid var(--cyan-neon);
-            width: 100%; color: #fff; font-family: var(--font-cyber);
-            text-transform: uppercase; letter-spacing: 1px; padding: 10px;
-            font-size: 0.8rem; margin-top: 15px; border-radius: 4px; cursor: pointer; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;
-        }
-        .btn-work-together:hover {
-            background-color: var(--cyan-neon); color: #000; box-shadow: var(--glow-neon);
-        }
-
-        /* --- Responsive Queries --- */
-        @media (max-width: 1100px) {
-            .main-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: repeat(2, 1fr); }
-            .skill-grid { grid-template-columns: repeat(6, 1fr); }
-        }
-        @media (max-width: 768px) {
-            nav ul, .nav-actions { display: none; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .swiper-text-content h1 { font-size: 1.2rem; }
-            .skill-grid { grid-template-columns: repeat(4, 1fr); }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
 
-    <!-- Header / Nav -->
-    <header>
-        <div class="logo-group">
-            <i class="fa-solid fa-cube" style="color: var(--cyan-neon);"></i> HADIST
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="nav-actions">
-            <a href="https://github.com/hadist97446" target="_blank" class="btn-cyber"><i class="fa-brands fa-github"></i> GitHub</a>
+    <!-- Top Header Navigation -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-cyan-500/20 px-4 lg:px-8 py-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#dashboard" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/40 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-cube text-lg"></i>
+                </div>
+                <span class="font-orbitron text-xl font-bold tracking-wider text-slate-100 group-hover:text-cyan-400 transition-colors">HADIST</span>
+            </a>
+
+            <!-- Single Nav Item: Dashboard -->
+            <nav>
+                <a href="#dashboard" class="font-orbitron text-xs sm:text-sm font-semibold tracking-wider text-cyan-400 bg-cyan-500/10 hover:bg-cyan-500 hover:text-slate-950 px-5 py-2 rounded-xl border border-cyan-500/40 transition-all duration-300 flex items-center gap-2 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>DASHBOARD</span>
+                </a>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-grid" id="home">
+    <!-- Main Content Layout -->
+    <main id="dashboard" class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6 pb-16 space-y-10">
 
-        <!-- Left Side: Profile -->
-        <aside class="profile-side">
-            <div class="cyber-card">
-                <div class="avatar-container">
-                    <!-- Foto Profil Pertama dari Drive -->
-                    <img src="https://lh3.googleusercontent.com/d/12wV-VDUYMVfluOgrEXd1M1FF96JlyH8V" alt="Avatar Hadist">
-                </div>
-                <h2>Hadist</h2>
-                <h3>Informatics Student</h3>
-                <p class="badge-student">S1 Informatika | UBSI</p>
-                
-                <ul class="profile-data-list">
-                    <li><i class="fa-solid fa-id-card"></i> NIM : 15230663</li>
-                    <li><i class="fa-solid fa-envelope"></i> kingmaster97446@gmail.com</li>
-                    <li><i class="fa-solid fa-location-dot"></i> Pontianak, Indonesia</li>
-                </ul>
-                
-                <!-- Hanya 2 Tombol Sosmed: Instagram dan GitHub -->
-                <div class="social-links">
-                    <a href="https://www.instagram.com/what_aan?stkn=MTNjeGRxd280NWQxeQ==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://github.com/hadist97446" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                </div>
-                
-                <p class="motto">“Keep Coding, Keep Growing”</p>
-            </div>
-        </aside>
-
-        <!-- Center Side: Slider, About, Projects -->
-        <section class="center-side">
+        <!-- Top Section: Left Profile Card + Right Interactive Carousel -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
-            <!-- Swiper Slider (Menggunakan 6 foto Google Drive tersisa) -->
-            <div class="cyber-card swiper-card">
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="https://lh3.googleusercontent.com/d/1384we0txmkqa8sQg5s94sjPqxZiyz0h3" alt="Slide 1">
-                            <div class="swiper-text-content">
-                                <p class="meta">Dream • Code • Build • Repeat</p>
-                                <h1>Langkah kecil hari ini,<br>untuk masa depan yang <span class="highlight">besar</span>.</h1>
-                                <p class="desc">Belajar, berkarya, dan terus berkembang di dunia teknologi.</p>
+            <!-- Left Profile Card -->
+            <div class="lg:col-span-4 flex flex-col justify-between cyber-card rounded-2xl p-6 relative overflow-hidden group">
+                <div class="absolute -top-12 -left-12 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div class="flex flex-col items-center text-center space-y-4 relative z-10">
+                    <!-- Profile Photo Avatar with Click to Zoom -->
+                    <div class="relative mt-2">
+                        <div class="w-36 h-36 rounded-full p-1 cyber-border-glow overflow-hidden bg-slate-900 flex items-center justify-center cursor-pointer group/avatar zoomable-img relative" data-caption="Foto Profil - Hadist">
+                            <img src="https://lh3.googleusercontent.com/d/1mb1yPdulcXq_rS0XB749eMLBoFJRoDvQ" 
+                                 alt="Hadist Profile Photo" 
+                                 class="w-full h-full object-cover rounded-full group-hover/avatar:scale-110 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1mb1yPdulcXq_rS0XB749eMLBoFJRoDvQ&sz=w1000';">
+                            <!-- Hover Zoom Overlay -->
+                            <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/avatar:opacity-100 flex flex-col items-center justify-center transition-opacity rounded-full">
+                                <i class="fa-solid fa-magnifying-glass-plus text-cyan-400 text-xl mb-1"></i>
+                                <span class="text-[10px] text-cyan-300 font-semibold tracking-wider uppercase">Perbesar</span>
                             </div>
                         </div>
-                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1GKG4StRraeLPxixARD0y8qonIobx8Yct" alt="Slide 2"></div>
-                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1Ant6bJ1u1ydIGxn-PYM2v5ahgpyKFY_H" alt="Slide 3"></div>
-                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1U_2CHEvyVcnYHqhDU6OKdZ3lZYNr5U4X" alt="Slide 4"></div>
-                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1ULrefz2WJpZt09v52oc49ggSXzOOldac" alt="Slide 5"></div>
-                        <div class="swiper-slide"><img src="https://lh3.googleusercontent.com/d/1Hou_PrJYhP7O7EsIGxQ8t1L6lj6NXeAi" alt="Slide 6"></div>
+                        <div class="absolute bottom-1 right-2 w-4 h-4 bg-emerald-400 border-2 border-slate-900 rounded-full" title="Online Status"></div>
                     </div>
+
+                    <!-- User Name & Details -->
+                    <div class="space-y-1">
+                        <h1 class="text-2xl font-orbitron font-bold text-white tracking-wide">Hadist</h1>
+                        <p class="text-xs text-cyan-400 font-medium tracking-widest uppercase">Informatics Student</p>
+                    </div>
+
+                    <!-- Badge Info -->
+                    <div class="w-full py-2 px-3 bg-slate-900/80 rounded-xl border border-slate-800 text-xs text-slate-300 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-cyan-400"></i>
+                        <span class="font-semibold text-slate-200">S1 Informatika | UBSI</span>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="w-full text-left space-y-2 text-xs text-slate-400 pt-2 border-t border-slate-800/80">
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-id-card text-cyan-500/70"></i> NIM</span>
+                            <span class="font-mono text-slate-200 font-medium">15230663</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-envelope text-cyan-500/70"></i> Email</span>
+                            <span class="font-mono text-slate-200 font-medium text-[11px]">kingmaster97446@gmail.com</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-cyan-500/70"></i> Lokasi</span>
+                            <span class="text-slate-200 font-medium">Pontianak, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links & Quote -->
+                <div class="mt-6 pt-4 border-t border-slate-800/80 flex flex-col items-center gap-3 relative z-10">
+                    <div class="flex items-center gap-4 text-lg">
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:shadow-[0_0_10px_rgba(6,182,212,0.3)] transition-all">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:shadow-[0_0_10px_rgba(6,182,212,0.3)] transition-all">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                    <p class="text-[11px] text-slate-500 italic font-mono text-center">"Teruslah Memprogram, Teruslah Berkembang"</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Image Carousel Slider -->
+            <div class="lg:col-span-8 cyber-card rounded-2xl overflow-hidden relative h-[280px] sm:h-[340px] lg:h-[380px] flex items-center justify-center p-2">
+                <!-- Swiper Container -->
+                <div class="swiper mainCarousel w-full h-full rounded-xl overflow-hidden cursor-grab active:cursor-grabbing">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide w-full h-full relative bg-slate-950 flex items-center justify-center zoomable-img group/slide" data-caption="Galeri Proyek 1">
+                            <img src="https://lh3.googleusercontent.com/d/12wV-VDUYMVfluOgrEXd1M1FF96JlyH8V" 
+                                 alt="Galeri Proyek 1" 
+                                 class="w-full h-full object-cover group-hover/slide:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=12wV-VDUYMVfluOgrEXd1M1FF96JlyH8V&sz=w1000';">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/slide:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div class="bg-slate-900/90 border border-cyan-500/50 px-4 py-2 rounded-lg text-cyan-400 text-xs font-orbitron flex items-center gap-2 backdrop-blur-md shadow-lg">
+                                    <i class="fa-solid fa-expand text-sm"></i> Klik untuk Memperbesar
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide w-full h-full relative bg-slate-950 flex items-center justify-center zoomable-img group/slide" data-caption="Galeri Proyek 2">
+                            <img src="https://lh3.googleusercontent.com/d/1384we0txmkqa8sQg5s94sjPqxZiyz0h3" 
+                                 alt="Galeri Proyek 2" 
+                                 class="w-full h-full object-cover group-hover/slide:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1384we0txmkqa8sQg5s94sjPqxZiyz0h3&sz=w1000';">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/slide:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div class="bg-slate-900/90 border border-cyan-500/50 px-4 py-2 rounded-lg text-cyan-400 text-xs font-orbitron flex items-center gap-2 backdrop-blur-md shadow-lg">
+                                    <i class="fa-solid fa-expand text-sm"></i> Klik untuk Memperbesar
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide w-full h-full relative bg-slate-950 flex items-center justify-center zoomable-img group/slide" data-caption="Galeri Proyek 3">
+                            <img src="https://lh3.googleusercontent.com/d/1GKG4StRraeLPxixARD0y8qonIobx8Yct" 
+                                 alt="Galeri Proyek 3" 
+                                 class="w-full h-full object-cover group-hover/slide:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1GKG4StRraeLPxixARD0y8qonIobx8Yct&sz=w1000';">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/slide:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div class="bg-slate-900/90 border border-cyan-500/50 px-4 py-2 rounded-lg text-cyan-400 text-xs font-orbitron flex items-center gap-2 backdrop-blur-md shadow-lg">
+                                    <i class="fa-solid fa-expand text-sm"></i> Klik untuk Memperbesar
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide w-full h-full relative bg-slate-950 flex items-center justify-center zoomable-img group/slide" data-caption="Galeri Proyek 4">
+                            <img src="https://lh3.googleusercontent.com/d/1Ant6bJ1u1ydIGxn-PYM2v5ahgpyKFY_H" 
+                                 alt="Galeri Proyek 4" 
+                                 class="w-full h-full object-cover group-hover/slide:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1Ant6bJ1u1ydIGxn-PYM2v5ahgpyKFY_H&sz=w1000';">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/slide:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div class="bg-slate-900/90 border border-cyan-500/50 px-4 py-2 rounded-lg text-cyan-400 text-xs font-orbitron flex items-center gap-2 backdrop-blur-md shadow-lg">
+                                    <i class="fa-solid fa-expand text-sm"></i> Klik untuk Memperbesar
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide w-full h-full relative bg-slate-950 flex items-center justify-center zoomable-img group/slide" data-caption="Galeri Proyek 5">
+                            <img src="https://lh3.googleusercontent.com/d/1U_2CHEvyVcnYHqhDU6OKdZ3lZYNr5U4X" 
+                                 alt="Galeri Proyek 5" 
+                                 class="w-full h-full object-cover group-hover/slide:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1U_2CHEvyVcnYHqhDU6OKdZ3lZYNr5U4X&sz=w1000';">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/slide:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div class="bg-slate-900/90 border border-cyan-500/50 px-4 py-2 rounded-lg text-cyan-400 text-xs font-orbitron flex items-center gap-2 backdrop-blur-md shadow-lg">
+                                    <i class="fa-solid fa-expand text-sm"></i> Klik untuk Memperbesar
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6 -->
+                        <div class="swiper-slide w-full h-full relative bg-slate-950 flex items-center justify-center zoomable-img group/slide" data-caption="Galeri Proyek 6">
+                            <img src="https://lh3.googleusercontent.com/d/1ULrefz2WJpZt09v52oc49ggSXzOOldac" 
+                                 alt="Galeri Proyek 6" 
+                                 class="w-full h-full object-cover group-hover/slide:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1ULrefz2WJpZt09v52oc49ggSXzOOldac&sz=w1000';">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/slide:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div class="bg-slate-900/90 border border-cyan-500/50 px-4 py-2 rounded-lg text-cyan-400 text-xs font-orbitron flex items-center gap-2 backdrop-blur-md shadow-lg">
+                                    <i class="fa-solid fa-expand text-sm"></i> Klik untuk Memperbesar
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 7 -->
+                        <div class="swiper-slide w-full h-full relative bg-slate-950 flex items-center justify-center zoomable-img group/slide" data-caption="Galeri Proyek 7">
+                            <img src="https://lh3.googleusercontent.com/d/1Hou_PrJYhP7O7EsIGxQ8t1L6lj6NXeAi" 
+                                 alt="Galeri Proyek 7" 
+                                 class="w-full h-full object-cover group-hover/slide:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1Hou_PrJYhP7O7EsIGxQ8t1L6lj6NXeAi&sz=w1000';">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/slide:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div class="bg-slate-900/90 border border-cyan-500/50 px-4 py-2 rounded-lg text-cyan-400 text-xs font-orbitron flex items-center gap-2 backdrop-blur-md shadow-lg">
+                                    <i class="fa-solid fa-expand text-sm"></i> Klik untuk Memperbesar
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Navigation Controls -->
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
+        </div>
 
-            <!-- About Me -->
-            <div class="cyber-card about-me-card" id="about">
-                <h2 class="cyber-title"><i class="fa-solid fa-user-gear"></i> About Me</h2>
-                <p class="about-text">
-                    Halo! Saya Hadist, mahasiswa S1 Informatika di Universitas Bina Sarana Informatika (UBSI). Saya memiliki ketertarikan di bidang pengembangan web, mobile app, Internet of Things (IoT), dan pemograman sistem. Saya selalu berusaha belajar hal baru, mengerjakan proyek nyata, dan terus meningkatkan kemampuan untuk menjadi developer profesional.
-                </p>
+        <!-- About Me Section -->
+        <section class="cyber-card rounded-2xl p-6 lg:p-8 space-y-4">
+            <div class="flex items-center gap-3 text-cyan-400">
+                <i class="fa-solid fa-user-astronaut text-xl"></i>
+                <h2 class="font-orbitron font-bold text-lg lg:text-xl tracking-wider uppercase text-white">Tentang Saya</h2>
             </div>
-
-            <!-- My Projects (Penjelasan Tanpa Gambar) -->
-            <div class="cyber-card" id="projects">
-                <div class="projects-header">
-                    <h2 class="cyber-title"><i class="fa-solid fa-folder-open"></i> My Projects</h2>
-                </div>
-                
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div class="project-badge-group">
-                            <span class="project-badge badge-blue">Web Development</span>
-                        </div>
-                        <h4>Sistem Inventaris Lab Kampus</h4>
-                        <p class="stack">PHP + CodeIgniter + Bootstrap</p>
-                        <p class="desc">Aplikasi web yang berfungsi untuk mempermudah pencatatan, peminjaman, serta pemantauan stok alat dan fasilitas laboratorium kampus secara terstruktur.</p>
-                        <a href="https://github.com/hadist97446" target="_blank" class="link-project-sm">Detail Proyek <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                    
-                    <!-- Project 2 -->
-                    <div class="project-card">
-                        <div class="project-badge-group">
-                            <span class="project-badge badge-green">Mobile App</span>
-                        </div>
-                        <h4>Aplikasi Rental Mobil</h4>
-                        <p class="stack">Flutter + Firebase + PHP</p>
-                        <p class="desc">Aplikasi berbasis mobile yang menyediakan layanan pemesanan rental mobil online lengkap dengan sistem manajemen katalog dan riwayat pemesanan.</p>
-                        <a href="https://github.com/hadist97446" target="_blank" class="link-project-sm">Detail Proyek <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card">
-                        <div class="project-badge-group">
-                            <span class="project-badge badge-orange">Automation & Tools</span>
-                        </div>
-                        <h4>Auto Piano Keyboard Script</h4>
-                        <p class="stack">AutoHotkey Scripting</p>
-                        <p class="desc">Skrip otomatisasi berbasis AutoHotkey yang mengonversi notasi lagu menjadi input keyboard presisi untuk memainkan instrumen piano virtual.</p>
-                        <a href="https://github.com/hadist97446" target="_blank" class="link-project-sm">Detail Proyek <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project-card">
-                        <div class="project-badge-group">
-                            <span class="project-badge badge-blue">IoT & Hardware</span>
-                        </div>
-                        <h4>Sistem Kontrol Microcontroller</h4>
-                        <p class="stack">ESP8266 / ESP32 + C++</p>
-                        <p class="desc">Proyek hardware berbasis mikrokontroler untuk membaca data sensor digital dan mengirimkan kontrol perintah secara wireless.</p>
-                        <a href="https://github.com/hadist97446" target="_blank" class="link-project-sm">Detail Proyek <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
+            <p class="text-slate-300 text-sm leading-relaxed">
+                Halo! Saya <span class="text-cyan-400 font-semibold">Hadist</span>, mahasiswa S1 Informatika di Universitas Bina Sarana Informatika (UBSI). Saya memiliki ketertarikan mendalam di bidang pengembangan aplikasi Web, Mobile, Internet of Things (IoT), Game Development, serta Desain UI/UX. Berfokus pada inovasi teknologi modern, saya aktif membangun berbagai sistem interaktif baik berbasis hardware maupun software.
+            </p>
         </section>
 
-        <!-- Right Side: Skills & Contact -->
-        <section class="right-side">
-            
-            <!-- Skills -->
-            <div class="cyber-card" id="skills">
-                <h2 class="cyber-title"><i class="fa-solid fa-microchip"></i> My Skills</h2>
-                <div class="skill-grid">
-                    <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-brands fa-html5"></i></div>
-                        <span>HTML</span>
+        <!-- My Projects Section (Pure Informative Text Cards, No Link Buttons) -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div class="flex items-center gap-3 text-cyan-400">
+                    <i class="fa-solid fa-folder-open text-xl"></i>
+                    <h2 class="font-orbitron font-bold text-xl lg:text-2xl tracking-wider uppercase text-white">Proyek Saya</h2>
+                </div>
+                <span class="text-xs font-mono text-slate-500">Total: 7 Karya Rekayasa</span>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Project Card 1: Web Inventaris -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col justify-between space-y-4 border-l-4 border-l-cyan-500">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 text-[10px] font-orbitron font-semibold uppercase tracking-wider rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+                                Web Development
+                            </span>
+                            <i class="fa-solid fa-laptop-code text-slate-500 text-sm"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">
+                            Sistem Inventaris Lab Kampus
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Web manajemen inventaris laboratorium komputer kampus yang dirancang untuk pencatatan barang otomatis, tracking kondisi perangkat fisik, sistem peminjaman alat lab, serta laporan ketersediaan inventaris secara real-time.
+                        </p>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-brands fa-css3-alt"></i></div>
-                        <span>CSS</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-brands fa-js"></i></div>
-                        <span>JS</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-brands fa-php"></i></div>
-                        <span>PHP</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-brands fa-python"></i></div>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-database"></i></div>
-                        <span>MySQL</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-brands fa-git-alt"></i></div>
-                        <span>Git</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-code"></i></div>
-                        <span>Flutter</span>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">PHP/Laravel</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">MySQL</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Tailwind CSS</span>
                     </div>
                 </div>
+
+                <!-- Project Card 2: Sewa Alat Camping -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col justify-between space-y-4 border-l-4 border-l-emerald-500">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 text-[10px] font-orbitron font-semibold uppercase tracking-wider rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                E-Commerce & Web
+                            </span>
+                            <i class="fa-solid fa-tent text-slate-500 text-sm"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white">
+                            Sistem Sewa Alat Camping
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Platform penyewaan perlengkapan outdoor dan camping berbasis web. Dilengkapi sistem reservasi jadwal sewa, katalog tenda & alat outdoor, kalkulasi harga otomatis berdasarkan durasi hari, serta fitur manajemen pengembalian barang.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Web App</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Database</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Booking Logic</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Map Roblox -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col justify-between space-y-4 border-l-4 border-l-purple-500">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 text-[10px] font-orbitron font-semibold uppercase tracking-wider rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                                Game Development
+                            </span>
+                            <i class="fa-solid fa-gamepad text-slate-500 text-sm"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white">
+                            Pembuatan Map & Environment Roblox
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Desain dan pemodelan lingkungan 3D (map) pada platform Roblox Studio. Mencakup penyusunan tata letak peta interaktif, pencahayaan atmosferik, skrip mekanik game (Luau), serta optimasi objek 3D untuk performa gameplay yang lancar.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Roblox Studio</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Luau Scripting</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">3D Level Design</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 4: WiFi Jammer IoT -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col justify-between space-y-4 border-l-4 border-l-red-500">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 text-[10px] font-orbitron font-semibold uppercase tracking-wider rounded-md bg-red-500/10 text-red-400 border border-red-500/30">
+                                IoT & Cybersecurity
+                            </span>
+                            <i class="fa-solid fa-wifi text-slate-500 text-sm"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white">
+                            WiFi/Bluetooth Jammer Portable (ESP32)
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Proyek riset keamanan jaringan menggunakan mikrokontroler ESP32.Fungsi untuk mengirimkan sinyal yang kuat. Sinyal-sinyal ini mengacaukan atau memutus sinyal yang menggunakan pita 2,4 GHz.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">ESP8266</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">C++ / Arduino</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Network Security</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 5: Pendeteksi Suhu Ruang -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col justify-between space-y-4 border-l-4 border-l-amber-500">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 text-[10px] font-orbitron font-semibold uppercase tracking-wider rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                                IoT & Robotics
+                            </span>
+                            <i class="fa-solid fa-temperature-high text-slate-500 text-sm"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white">
+                            Pendeteksi Suhu & Kelembaban Ruang
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Sistem pemantau iklim ruangan menggunakan sensor DHT11. Menampilkan suhu dan kelembaban udara serta memicu alarm buzzer otomatis jika suhu melebihi batas ambang normal.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Sensor DHT11</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Arduino/ESP32</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">OLED Display</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 6: Pendeteksi Kebocoran Gas -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col justify-between space-y-4 border-l-4 border-l-orange-500">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 text-[10px] font-orbitron font-semibold uppercase tracking-wider rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/30">
+                                IoT & Smart Home
+                            </span>
+                            <i class="fa-solid fa-triangle-exclamation text-slate-500 text-sm"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white">
+                            Pendeteksi Kebocoran Gas LPG
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Perangkat keselamatan pintar berbasis sensor MQ4 untuk mendeteksi asap dan kebocoran gas LPG. Terhubung langsung dengan sirine peringatan dini dan indikator bahaya demi keamanan rumah tangga/industri.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Sensor MQ-2</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Buzzer Alert</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Microcontroller</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 7: Figma UI/UX Design -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col justify-between space-y-4 border-l-4 border-l-pink-500 md:col-span-2 lg:col-span-3">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 text-[10px] font-orbitron font-semibold uppercase tracking-wider rounded-md bg-pink-500/10 text-pink-400 border border-pink-500/30">
+                                UI/UX Design
+                            </span>
+                            <i class="fa-brands fa-figma text-slate-500 text-sm"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white">
+                            Desain UI/UX Tampilan Web & Mobile App (Figma)
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Perancangan antarmuka pengguna (User Interface) dan pengalaman pengguna (User Experience) untuk aplikasi web dan mobile Android/iOS menggunakan Figma. Berfokus pada wireframing, prototyping interaktif, konsistensi design system, serta responsivitas layout pengguna.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Figma Prototyping</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">User Research</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Wireframing</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">Design System</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="cyber-card rounded-2xl p-6 lg:p-8 space-y-6">
+            <div class="flex items-center gap-3 text-cyan-400 border-b border-slate-800 pb-4">
+                <i class="fa-solid fa-code text-xl"></i>
+                <h2 class="font-orbitron font-bold text-xl tracking-wider uppercase text-white">Keahlian & Teknologi</h2>
             </div>
 
-            <!-- Contact Data Sesuai Permintaan -->
-            <div class="cyber-card" id="contact">
-                <h2 class="cyber-title"><i class="fa-solid fa-headset"></i> Contact Me</h2>
-                <ul class="contact-data-list">
-                    <li><i class="fa-solid fa-envelope"></i> kingmaster97446@gmail.com</li>
-                    <li><i class="fa-brands fa-whatsapp"></i> 085161666685</li>
-                    <li><i class="fa-brands fa-instagram"></i> what_aan</li>
-                    <li><i class="fa-brands fa-github"></i> hadist97446</li>
-                </ul>
-                <a href="https://wa.me/6285161666685" target="_blank" class="btn-work-together"><i class="fa-solid fa-paper-plane"></i> Hubungi Saya</a>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 text-center space-y-2 hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-brands fa-php text-2xl text-indigo-400"></i>
+                    <p class="text-xs font-semibold text-slate-200">PHP</p>
+                </div>
+                <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 text-center space-y-2 hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-brands fa-js text-2xl text-yellow-400"></i>
+                    <p class="text-xs font-semibold text-slate-200">JavaScript</p>
+                </div>
+                <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 text-center space-y-2 hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-brands fa-html5 text-2xl text-orange-500"></i>
+                    <p class="text-xs font-semibold text-slate-200">HTML5 & CSS3</p>
+                </div>
+                <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 text-center space-y-2 hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-solid fa-microchip text-2xl text-cyan-400"></i>
+                    <p class="text-xs font-semibold text-slate-200">IoT & Arduino</p>
+                </div>
+                <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 text-center space-y-2 hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-brands fa-figma text-2xl text-pink-400"></i>
+                    <p class="text-xs font-semibold text-slate-200">Figma UI/UX</p>
+                </div>
+                <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 text-center space-y-2 hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-solid fa-gamepad text-2xl text-purple-400"></i>
+                    <p class="text-xs font-semibold text-slate-200">Roblox Studio</p>
+                </div>
             </div>
-
         </section>
 
     </main>
 
-    <!-- Swiper.js Script (Slider Interaktif) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Fullscreen Image Lightbox Modal -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/95 backdrop-blur-md p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <!-- Floating Close Button -->
+        <button id="closeModal" type="button" aria-label="Tutup" class="fixed top-4 right-4 z-[110] text-slate-300 hover:text-slate-950 bg-slate-900/90 hover:bg-cyan-400 border border-cyan-500/50 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.5)] cursor-pointer">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+
+        <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center">
+            <!-- High Res Modal Image Container -->
+            <div class="relative overflow-hidden rounded-2xl border border-cyan-500/40 shadow-[0_0_50px_rgba(6,182,212,0.3)] bg-slate-900 flex items-center justify-center max-h-[75vh]">
+                <img id="modalImg" src="" alt="Enlarged View" class="max-w-full max-h-[75vh] object-contain select-none">
+            </div>
+            <!-- Modal Caption -->
+            <div class="mt-3 flex items-center justify-between w-full max-w-2xl px-2">
+                <p id="modalCaption" class="text-cyan-400 font-orbitron font-semibold text-xs sm:text-sm tracking-wide"></p>
+                <span class="text-slate-500 text-[11px] font-mono">Klik di luar / Tekan ESC untuk menutup</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w-full border-t border-slate-900 bg-slate-950 py-6 px-4 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="font-mono">&copy; 2026 Hadist - Portofolio S1 Informatika UBSI</p>
+            <p class="text-[11px] text-slate-600">Built with HTML5, Tailwind CSS, Swiper & JavaScript</p>
+        </div>
+    </footer>
+
+    <!-- Swiper & Modal Lightbox Script -->
     <script>
-        const swiper = new Swiper('.mySwiper', {
-            loop: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeModal = document.getElementById('closeModal');
+
+        function openModal(src, caption) {
+            if (!modal || !modalImg) return;
+            modalImg.src = src;
+            modalCaption.textContent = caption || 'Detail Foto Portofolio';
+            modal.classList.remove('hidden', 'pointer-events-none', 'opacity-0');
+            modal.classList.add('flex', 'opacity-100', 'pointer-events-auto');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideModal() {
+            if (!modal) return;
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }, 200);
+        }
+
+        if (closeModal) {
+            closeModal.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                hideModal();
+            });
+        }
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal || e.target.classList.contains('backdrop-blur-md')) {
+                    hideModal();
+                }
+            });
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+                hideModal();
+            }
         });
+
+        function setupZoomableImages() {
+            document.querySelectorAll('.zoomable-img').forEach(container => {
+                container.addEventListener('click', function(e) {
+                    if (e.target.closest('.swiper-button-next') || e.target.closest('.swiper-button-prev')) return;
+                    
+                    const img = this.querySelector('img') || this;
+                    const caption = this.getAttribute('data-caption') || img.alt || 'Foto Hadist';
+                    openModal(img.src, caption);
+                });
+            });
+        }
+
+        function initCarousel() {
+            if (typeof Swiper !== 'undefined') {
+                new Swiper('.mainCarousel', {
+                    loop: true,
+                    grabCursor: true,
+                    simulateTouch: true,
+                    allowTouchMove: true,
+                    touchRatio: 1,
+                    touchEventsTarget: 'wrapper',
+                    autoplay: {
+                        delay: 3500,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    }
+                });
+            }
+            setupZoomableImages();
+        }
+
+        if (document.readyState === 'complete') {
+            initCarousel();
+        } else {
+            window.addEventListener('load', initCarousel);
+        }
     </script>
 </body>
 </html>
